@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Cell Cycle</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@500&display=swap" rel="stylesheet">
+        <link rel="icon" href="favicon_io/favicon-32x32.png" type="image/x-icon"/>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: "Geist", sans-serif;
+                text-align:center;
+                background-color: #f4f4f9;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                line-height: 1.6;
+            }
+            .navbar {
+                padding:0 20px;
+                transform:scale(0.98);
+                border-radius:10px;
+                box-shadow:3px 3px 9px 2px rgba(0, 0, 0, 0.4);
+                z-index: 999;
+                background:linear-gradient(to right, #7272de, #83dcb1);
+                margin-bottom:15px;
+            }
+
+            .navbar ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                gap: 30px;
+            }
+
+            .navbar a {
+                color: black;
+                text-decoration: none;
+                font-size: 1.1em;
+                font-weight: bold;
+                padding: 8px 12px;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+            button {
+                background-color: #008c99;
+                color: white;
+                padding: 10px;
+                border-radius: 15px;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                transform:scale(1.3);
+                margin:20px;
+            }
+            .navbar a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            h1 {
+                margin-top:0;
+                text-align:center;                
+                font-size: 3em;
+                background: linear-gradient(to right, #32CD32, #FFD700);
+                padding: 30px;
+                color: #fff;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+            
+            hr {
+                width: 80%;
+                height: 6px;
+                border: none;
+                background: linear-gradient(to right, #4b6cb7, #182848);
+                margin: 20px auto;
+                border-radius: 5px;
+            }
+            
+            h2, .big-heading {
+                font-size: 2.5em;
+                color: #333;
+                margin-top: 40px;
+            }
+            
+            p {
+                font-size: 1.1em;
+                margin: 20px auto;
+                width: 90%;
+                max-width: 900px;
+                line-height: 1.8;
+                color: #555;
+            }
+            
+            img {
+                width: 100%;
+                max-width: 400px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                border: 8px solid #8B4513;
+                border-radius: 12px;
+                padding: 5px;
+                box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                cursor: zoom-in;
+            }
+            
+            img:hover {
+                transform: scale(1.05);
+                box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.6);
+            }
+            
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+            
+            .overlay img {
+                width: 80%;
+                height: auto;
+                object-fit: contain;
+                border-radius: 8px;
+                transition: transform 0.3s ease;
+                cursor:zoom-out;
+            }
+            
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 3em;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.6);
+                border: none;
+                padding: 5px 10px;
+                border-radius: 50%;
+                cursor: pointer;
+                z-index: 10000;
+            }
+            
+            .close-btn:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+            
+            caption {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-top: -15px;
+            }
+            
+            h2.big-heading {
+                font-size: 2.8em;
+                color: #4b6cb7;
+            }
+            
+            strong {
+                color: #2e8b57;
+            }
+            
+            em {
+                font-style: italic;
+                color: #8b0000;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+    
+            ul li {
+                width:90%;
+                background: #fff;
+                margin: 20px auto;
+                padding: 15px;
+                border-radius: 5px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s;
+                cursor:default;
+            }
+    
+            ul li:hover {
+                transform: scale(1.02);
+            }
+            ::-webkit-scrollbar {
+                width: 10px;
+                border-radius: 25px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #ccc;
+                border-radius: 30px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #bbb;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>The Cell Cycle - Simplified</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#interphase">Interphase</a></li>
+                <li><a href="#mitosis">Mitosis</a></li>
+                <li><a href="#prophase">Prophase</a></li>
+                <li><a href="#metaphase">Metaphase</a></li>
+                <li><a href="#anaphase">Anaphase</a></li>
+                <li><a href="#telophase">Telophase</a></li>
+                <li><a href="#cytokinesis">Cytokinesis</a></li>
+                <li><a href="#glossary">Glossary</a></li>
+            </ul>
+        </nav>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Cell_cycle_simple.png" alt="Diagram of the cell cycle, split into the G1(growth), S(DNA copying), G2(mitosis preparation), and M(mitosis) phases.">
+        <br>
+        <caption><strong>Diagram of the cell cycle</strong></caption>
+        <p>The cell cycle is the cycle of the life of a cell. This cycle begins with a cell's birth and ends with cytokinesis, or the split of a cell into two daughter cells. Because it's a cycle, it always keeps going. Note I am making this website assuming you already know the basic cell parts. Let's break down the major parts of the cell cycle:</p>
+        <hr>
+        <h2 class="big-heading" id="interphase">Interphase</h2>
+        <p>This is the phase the begins at the birth of a cell. It's also the longest phase, encompassing roughly 90% of a cell's life. In this phase, cells carry out their regular processes, while also copying all of their DNA. This is to prepare for mitosis. However, some cells, such as neurons, enter a phase where they don't do mitosis. This is called the G0 phase. The cell in the G0 phase will always be doing its job and never reproduces.</p>
+        <h2 class="big-heading" id="mitosis">Mitosis</h2>
+        <p>Mitosis is the process of cell reproduction, where one cell nucleus splits into two cell nuclei. After that the cells separate. It's where all that copied DNA comes to use. It has four major steps: <strong>prophase</strong>, <strong>metaphase</strong>, <strong>anaphase</strong>, and <strong>telophase</strong>. Mitosis produces two genetically identical <strong>daughter cells</strong>. After mitosis is <strong>cytokinesis</strong>, which is when the two cells actually separate their organelles and membranes and whatnot. Please note that mitosis only forms somatic cells(body cells), <em>not gametes</em>(reproductive cells). Gametes are formed via meiosis, a similar-ish process.</p>
+        <h2 id="prophase">Prophase</h2>
+        <p>Prophase is the first step of mitosis. During interphase, the cell is copying its DNA to prepare for mitosis. In prophase, the DNA(all of it, including the original) is coiled up into X shaped... things called <strong>chromosomes</strong>. Each chromosome is two sets of DNA, and so each half is called a <strong>chromatid</strong>. Note that chromosomes are counted by their <strong>centromeres</strong>, the thing in the center that connects both sides. This can be very confusing. In addition, <strong>centrioles</strong>, and <strong>spindle fibers</strong> appear, which will be useful later. Also the membrane surrounding the nucleus breaks down. Here is a diagram of prophase:</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Mitosis-_Prophase.png" alt="Prophase: centrioles and spindle fibers appear and DNA is wrapped in X shaped chromosomes in the nucleus">
+        <h2 id="metaphase">Metaphase</h2>
+        <p>During metaphase, the chromosomes(the full X shapes) line up along the vertical diameter(idk) of the cell. In addition, centrioles(small things in cells  the spindle fibers[which grab the chromosomes] are attached to. They are on two different poles of the cell) move to opposite sides and the spindle fibers(they grab the chromosomes at the centromeres) attach to it and reach for the chromosomes. Here is a diagram: </p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Metaphase.svg" alt="Metaphase, when spindle fibers from centrioles attach to chromosomes that line up at the equator of the cell.">
+        <h2 id="anaphase">Anaphase</h2>
+        <p>In anaphase, the centrioles pull and the chromosomes split into each chromatid. Each side gets 46 chromatids, which is enough for the DNA of each daughter cell. There's really not much to say here. Here is a diagram of anaphase:</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Anaphase.svg/800px-Anaphase.svg.png" alt="Anaphase, when the chromosomes split into chromatids and the centrioles pull them to either side of the cell">
+        <h2 id="telophase">Telophase</h2>
+        <p>Telophase is the last phase of mitosis. During this phase, the chromatids unwind. This brings out the DNA again. In addition, the centrioles and spindle fibers stop pulling. A new nuclear membrane forms. After this is an equally long and important process as mitosis: <strong>cytokinesis</strong>. Here is a diagram of telophase(commonly shown as the cell "pinching"):</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Telophase.jpg" alt="Telophase, when the DNA unwraps, the spindle fibers disintegrate, the nuclear membrane begins to reform, and the cell 'pinch.'">
+        <h2 id="cytokinesis">Cytokinesis</h2>
+        <p>Cytokinesis is when the <strong>cytoplasm</strong> actually separates. This process lasts about one hour, which is around the same length as mitosis. This process is equally important because if this didn't happen, two nuclei in a single cell can really mess it up. In animal cells, a structure known as the <strong>cleavage furrow</strong> forms, which pinches the cell and aids in splitting it. In plant cells, a <strong>cell plate</strong> forms, which eventually becomes a new <strong>cell wall</strong>, splitting the plant cell. Here is a diagram of cytokinesis in animal cells:</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Cytokinesis_illustration.svg/800px-Cytokinesis_illustration.svg.png" alt="A picture of cytokinesis in animal cells, showing the cleavage furrow being formed and the cell pinching.">
+        <hr>
+        <h2 class="big-heading" id="glossary">Glossary</h2>
+        <ul>
+          <li><strong>Cell cycle</strong>: The life cycle of a cell, from its birth through growth and division into two daughter cells.</li>
+          <li><strong>Interphase</strong>: The phase where a cell grows, performs its normal functions, and duplicates its DNA in preparation for mitosis.</li>
+          <li><strong>G0 phase</strong>: A resting state during interphase where cells stop dividing and perform their regular tasks indefinitely.</li>
+          <li><strong>Mitosis</strong>: The process of nuclear division where one cell nucleus splits into two genetically identical nuclei.</li>
+          <li><strong>Prophase</strong>: The first step of mitosis when DNA condenses into chromosomes, spindle fibers form, and the nuclear membrane dissolves.</li>
+          <li><strong>Chromosomes</strong>: X-shaped structures made of tightly coiled DNA that contain genetic information.</li>
+          <li><strong>Chromatids</strong>: Each half of a duplicated chromosome, connected by a centromere.</li>
+          <li><strong>Centromeres</strong>: The central region of a chromosome where sister chromatids are joined and spindle fibers attach.</li>
+          <li><strong>Centrioles</strong>: Organelles that help organize spindle fibers during mitosis.</li>
+          <li><strong>Spindle fibers</strong>: Protein fibers that pull chromatids apart to opposite ends of the cell during mitosis.</li>
+          <li><strong>Metaphase</strong>: The second step of mitosis when chromosomes align along the cell’s middle, and spindle fibers attach to their centromeres.</li>
+          <li><strong>Anaphase</strong>: The third step of mitosis where sister chromatids separate and move to opposite poles of the cell.</li>
+          <li><strong>Telophase</strong>: The final stage of mitosis when chromosomes unwind, nuclear membranes reform, and the cell begins to pinch.</li>
+          <li><strong>Daughter cells</strong>: The two genetically identical cells formed after mitosis and cytokinesis.</li>
+          <li><strong>Cytokinesis</strong>: The process following mitosis where the cytoplasm divides, forming two distinct daughter cells.</li>
+          <li><strong>Cleavage furrow</strong>: The indentation that forms in animal cells during cytokinesis, helping the cell split into two.</li>
+          <li><strong>Cell plate</strong>: A structure that forms in plant cells during cytokinesis and eventually develops into a new cell wall.</li>
+      </ul>
+      <button id="back-to-top">Back to Top</button>
+        <div class="overlay" id="overlay">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <img id="fullscreenImage" src="" alt="Fullscreen Image">
+        </div>
+        <script>
+            var pictures = document.getElementsByTagName("img");
+            var overlay = document.getElementById("overlay");
+            var fullscreenImage = document.getElementById("fullscreenImage");
+            var closeBtn = document.getElementById("closeBtn");
+            var backToTopBtn = document.getElementById("back-to-top");
+            for (var i = 0; i < pictures.length; i++) {
+                pictures[i].addEventListener("click", function() {
+                    fullscreenImage.src = this.src;
+                    overlay.style.display = "flex";
+                });
+            }
+    
+            closeBtn.addEventListener("click", function() {
+                overlay.style.display = "none";
+            });
+    
+            overlay.addEventListener("click", function() {
+                overlay.style.display = "none";
+            });
+    
+            backToTopBtn.addEventListener("click", function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        </script>
+    </body>
+</html>
