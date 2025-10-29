@@ -209,11 +209,68 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #bbb;
             }
-
+            /* 🌙 Dark mode styles */
+            body.dark-mode {
+                background-color: #1c1c1c;
+                color: #e0e0e0;
+            }
+        
+            body.dark-mode .content {
+                background-color: #2a2a2a;
+                color: #e0e0e0;
+                box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+            }
+        
+            body.dark-mode h1 {
+                background: linear-gradient(to right, #3a6ea5, #1a936f);
+            }
+        
+            body.dark-mode h2 {
+                color: #84fab0;
+                border-color: #1a936f;
+            }
+        
+            body.dark-mode .navbar {
+                background: #333;
+            }
+        
+            body.dark-mode .navbar a {
+                color: #c1f0f6;
+            }
+        
+            body.dark-mode .navbar a:hover {
+                background: rgba(255,255,255,0.1);
+            }
+        
+            body.dark-mode #back-to-top {
+                background-color: #444;
+            }
+        
+            /* ☀️ Dark mode toggle button */
+            #dark-mode-toggle {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #3a6ea5;
+                color: white;
+                border: none;
+                padding: 10px 12px;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 1.2rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                z-index: 1000;
+                transition: background-color 0.3s ease;
+            }
+        
+            #dark-mode-toggle:hover {
+                background-color: #1a4b7a;
+            }
         </style>
     </head>
     <body>
         <h1>The Cell Cycle - Simplified</h1>
+        <button id="dark-mode-toggle">🌙</button>
         <nav class="navbar">
             <ul>
                 <li><a href="#interphase">Interphase</a></li>
@@ -277,34 +334,48 @@
             <img id="fullscreenImage" src="" alt="Fullscreen Image">
         </div>
         <script>
-            var pictures = document.getElementsByTagName("img");
-            var overlay = document.getElementById("overlay");
-            var fullscreenImage = document.getElementById("fullscreenImage");
-            var closeBtn = document.getElementById("closeBtn");
-            var backToTopBtn = document.getElementById("back-to-top");
-            for (var i = 0; i < pictures.length; i++) {
-                pictures[i].addEventListener("click", function() {
-                    fullscreenImage.src = this.src;
-                    overlay.style.display = "flex";
+            // Zoom image feature
+            const images = document.querySelectorAll('img');
+            const overlay = document.getElementById('overlay');
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            const closeBtn = document.getElementById('closeBtn');
+        
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    fullscreenImage.src = img.src;
+                    overlay.style.display = 'flex';
                 });
+            });
+        
+            closeBtn.addEventListener('click', () => overlay.style.display = 'none');
+            overlay.addEventListener('click', () => overlay.style.display = 'none');
+        
+            // Back to top button
+            const backToTopBtn = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                backToTopBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+            });
+            backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        
+            // 🌙 Dark mode toggle + memory + auto-detect
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+        
+            // Check stored preference
+            if (localStorage.getItem('theme') === 'dark' ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.textContent = '☀️';
             }
-    
-            closeBtn.addEventListener("click", function() {
-                overlay.style.display = "none";
-            });
-    
-            overlay.addEventListener("click", function() {
-                overlay.style.display = "none";
-            });
-    
-            backToTopBtn.addEventListener("click", function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+        
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const darkModeOn = document.body.classList.contains('dark-mode');
+                darkModeToggle.textContent = darkModeOn ? '☀️' : '🌙';
+                localStorage.setItem('theme', darkModeOn ? 'dark' : 'light');
             });
         </script>
     </body>
 
 </html>
+
 
