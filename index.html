@@ -209,11 +209,16 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #bbb;
             }
-            /* 🌙 Dark mode styles */
             body.dark-mode {
                 background-color: #1c1c1c;
                 color: #e0e0e0;
             }
+            body, 
+            .navbar, 
+            .navbar a {
+                transition: background-color 0.3s, color 0.3s;
+            }
+
         
             body.dark-mode .content {
                 background-color: #2a2a2a;
@@ -235,7 +240,7 @@
             }
         
             body.dark-mode .navbar a {
-                color: #c1f0f6;
+                color: #4DD0E1;
             }
         
             body.dark-mode .navbar a:hover {
@@ -246,7 +251,6 @@
                 background-color: #444;
             }
         
-            /* ☀️ Dark mode toggle button */
             #dark-mode-toggle {
                 position: fixed;
                 top: 20px;
@@ -377,5 +381,6 @@
     </body>
 
 </html>
+
 
 
