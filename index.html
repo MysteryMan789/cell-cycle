@@ -276,6 +276,23 @@
             #dark-mode-toggle:hover {
                 background-color: #1a4b7a;
             }
+            .quiz {
+                background:white;
+                width:90%;
+                max-width:700px;
+                margin:25px auto;
+                padding:20px;
+                border-radius:10px;
+                box-shadow:2px 2px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .quiz button {
+                margin:8px;
+                transform:scale(1);
+            }
+            .quiz button:hover {
+                transform:scale(1.02);
+            }
         </style>
     </head>
     <body>
@@ -305,18 +322,63 @@
         <h2 id="prophase">Prophase</h2>
         <p>Prophase is the first step of mitosis. During interphase, the cell is copying its DNA to prepare for mitosis. In prophase, the DNA(all of it, including the original) is coiled up into X shaped... things called <strong>chromosomes</strong>. Each chromosome is two sets of DNA, and so each half is called a <strong>chromatid</strong>. Note that chromosomes are counted by their <strong>centromeres</strong>, the thing in the center that connects both sides. This can be very confusing. In addition, <strong>centrioles</strong>, and <strong>spindle fibers</strong> appear, which will be useful later. Also the membrane surrounding the nucleus breaks down. Here is a diagram of prophase:</p>
         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Mitosis-_Prophase.png" alt="Prophase: centrioles and spindle fibers appear and DNA is wrapped in X shaped chromosomes in the nucleus">
+        <div class="quiz">
+            <p><strong>Quick Check:</strong> What happens during prophase?</p>
+
+            <button class="quiz-button" data-answer="a">Chromosomes line up in the center</button>
+            <button class="quiz-button" data-answer="b" data-correct="true">DNA condenses into chromosomes</button>
+            <button class="quiz-button" data-answer="c">Chromatids separate</button>
+
+            <p class="quiz-result"></p>
+        </div>
         <h2 id="metaphase">Metaphase</h2>
-        <p>During metaphase, the chromosomes(the full X shapes) line up along the <strong>metaphase plate</strong> of the cell. In addition, centrioles(small things in cells  the spindle fibers[which grab the chromosomes] are attached to. They are on two different poles of the cell) move to opposite sides and the spindle fibers(they grab the chromosomes at the centromeres) attach to it and reach for the chromosomes. Here is a diagram: </p>
+        <p>During metaphase, the chromosomes(the full X shapes) line up along the <strong>metaphase plate</strong> of the cell. In addition, centrioles(small things in cells the spindle fibers[which grab the chromosomes] are attached to. They are on two different poles of the cell) move to opposite sides and the spindle fibers(they grab the chromosomes at the centromeres) attach to it and reach for the chromosomes. Here is a diagram: </p>
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Metaphase.svg" alt="Metaphase, when spindle fibers from centrioles attach to chromosomes that line up at the equator of the cell.">
+        <div class="quiz">
+            <p><strong>Quick Check:</strong> Where do the chromosomes line up during metaphase?</p>
+
+            <button class="quiz-button">On each half</button>
+            <button class="quiz-button" data-correct="true">Across the center</button>
+            <button class="quiz-button">Randomly</button>
+
+            <p class="quiz-result"></p>
+        </div>
         <h2 id="anaphase">Anaphase</h2>
-        <p>In anaphase, the centrioles pull and the chromosomes split into each chromatid. Each side gets 46 chromatids, which is enough for the DNA of each daughter cell. There's really not much to say here. Here is a diagram of anaphase:</p>
+        <p>In anaphase, the centrioles pull and the chromosomes split into each chromatid. In human cells, each side gets 46 chromatids, which is enough for the DNA of each daughter cell. There's really not much to say here. Here is a diagram of anaphase:</p>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Anaphase.svg/800px-Anaphase.svg.png" alt="Anaphase, when the chromosomes split into chromatids and the centrioles pull them to either side of the cell">
+        <div class="quiz">
+            <p><strong>Quick Check:</strong> How many chromatids does each half of the cell get?</p>
+
+            <button class="quiz-button" data-correct="true">46</button>
+            <button class="quiz-button">23</button>
+            <button class="quiz-button">92</button>
+
+            <p class="quiz-result"></p>
+        </div>
         <h2 id="telophase">Telophase</h2>
         <p>Telophase is the last phase of mitosis. During this phase, the chromatids unwind. This brings out the DNA again. In addition, the centrioles and spindle fibers stop pulling. A new nuclear membrane forms. After this is an equally long and important process as mitosis: <strong>cytokinesis</strong>. Here is a diagram of telophase(commonly shown as the cell "pinching"):</p>
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Telophase.jpg" alt="Telophase, when the DNA unwraps, the spindle fibers disintegrate, the nuclear membrane begins to reform, and the cell 'pinch.'">
+        <div class="quiz">
+            <p><strong>Quick Check:</strong> When the chromatids unwind, what comes out of them?</p>
+
+            <button class="quiz-button" data-correct="true">DNA</button>
+            <button class="quiz-button">Centrioles</button>
+            <button class="quiz-button">Spindle fibers</button>
+
+            <p class="quiz-result"></p>
+        </div>
         <h2 id="cytokinesis">Cytokinesis</h2>
         <p>Cytokinesis is when the <strong>cytoplasm</strong> actually separates. This process lasts about one hour, which is around the same length as mitosis. This process is equally important because if this didn't happen, two nuclei in a single cell can really mess it up. In animal cells, a structure known as the <strong>cleavage furrow</strong> forms, which pinches the cell and aids in splitting it. In plant cells, a <strong>cell plate</strong> forms, which eventually becomes a new <strong>cell wall</strong>, splitting the plant cell. Here is a diagram of cytokinesis in animal cells:</p>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Cytokinesis_illustration.svg/800px-Cytokinesis_illustration.svg.png" alt="A picture of cytokinesis in animal cells, showing the cleavage furrow being formed and the cell pinching.">
+        <div class="quiz">
+            <p><strong>Quick Check:</strong> Since plant cells use cell walls, what is formed during cytokinesis to become a cell wall?</p>
+
+            <button class="quiz-button">Cleavage furrow</button>
+            <button class="quiz-button">Cell membrane</button>
+            <button class="quiz-button" data-correct="true">Cell plate</button>
+
+            <p class="quiz-result"></p>
+        </div>
         <hr>
         <h2 class="big-heading" id="glossary">Glossary</h2>
         <ul>
@@ -384,13 +446,32 @@
                 darkModeToggle.textContent = darkModeOn ? '☀️' : '🌙';
                 localStorage.setItem('theme', darkModeOn ? 'dark' : 'light');
             });
+            // Quizzes
+            const quizzes = document.querySelectorAll(".quiz");
+
+            quizzes.forEach(quiz => {
+
+                const buttons = quiz.querySelectorAll(".quiz-button");
+                const result = quiz.querySelector(".quiz-result");
+
+                buttons.forEach(button => {
+
+                    button.addEventListener("click", () => {
+
+                        if (button.dataset.correct === "true") {
+                            result.textContent = "✅ Correct!";
+                            result.style.color = "green";
+                        } else {
+                            result.textContent = "❌ Try again!";
+                            result.style.color = "red";
+                        }
+
+                    });
+
+                });
+
+            });
         </script>
     </body>
 
 </html>
-
-
-
-
-
-
